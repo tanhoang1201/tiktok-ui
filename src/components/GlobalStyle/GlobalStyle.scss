@@ -4,12 +4,20 @@
 :root {
     --header-height: 60px;
     --layout-width: 1150px;
+    --border-color: #d4d5d7;
+    --back: black;
+    --white: white;
+    --icon-color: #a7a7ab;
+    --hover0color: #16182308;
+    --text-color: #333;
+    --primary: #fe2c55;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -21,4 +29,16 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
 }

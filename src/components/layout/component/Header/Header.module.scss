@@ -1,10 +1,75 @@
 .wrapper {
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
-}
 
-.header {
-    height: var(--header-height);
-    width: var(--layout-width);
-    margin: auto;
-    background-image: linear-gradient(to bottom right, #0100ec, #fb36f4);
+    .header {
+        height: var(--header-height);
+        width: var(--layout-width);
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .search {
+            padding-left: 16px;
+            width: 361px;
+            height: 46px;
+            background: rgba(22, 24, 35, 0.06);
+            border-radius: 92px;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+
+            &:focus-within {
+                border-color: var(--border-color);
+            }
+
+            input {
+                flex: 1;
+                line-height: 22px;
+                font-size: 1.4rem;
+                background-color: transparent;
+                caret-color: var(--primary);
+
+                &:not(:placeholder-shown) ~ .icon {
+                    display: inline-block;
+                }
+                &:not(:placeholder-shown) ~ .search-icon {
+                    color: #333;
+                }
+            }
+
+            .icon {
+                color: var(--icon-color);
+                margin-right: 12px;
+                display: none;
+            }
+
+            .separate {
+                width: 1px;
+                background-color: var(--border-color);
+                display: inline-block;
+                height: 28px;
+            }
+
+            .search-icon {
+                padding: 0 18px 0 14px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                border-top-right-radius: inherit;
+                border-bottom-right-radius: inherit;
+                color: var(--icon-color);
+
+                &:hover {
+                    background-color: #16182308;
+                    cursor: pointer;
+                }
+
+                &:active {
+                    background-color: #1618230f;
+                }
+            }
+        }
+    }
 }
