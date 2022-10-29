@@ -9,9 +9,20 @@
         align-items: center;
         justify-content: space-between;
 
+        .search,
+        .search-result {
+            width: 361px;
+        }
+
+        .search-title {
+            color: var(--icon-color);
+            font-weight: 500;
+            font-size: 1.4rem;
+            padding: 5px 12px;
+        }
+
         .search {
             padding-left: 16px;
-            width: 361px;
             height: 46px;
             background: rgba(22, 24, 35, 0.06);
             border-radius: 92px;
