@@ -2,25 +2,26 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import style from './Header.module.scss';
 import images from '../../../../assets/images';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
+import Button from '../../../Button';
 
 const cx = classNames.bind(style);
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([]);
+            setSearchResult([1]);
         }, 0);
     }, []);
     return (
         <div className={cx('wrapper')}>
-            <header className={cx('header')}>
+            <div className={cx('header')}>
                 <Link to="/">
                     <img src={images.logo} alt="Tik Tok" />
                 </Link>
@@ -38,7 +39,7 @@ function Header() {
                         </div>
                     )}
                 >
-                    <div className={cx('search')}>
+                    <div className={cx('search')} tabIndex="0">
                         <input type="text" placeholder="Tìm kiếm tài khoản và video" spellCheck={false} />
                         <div className={cx('clear', 'icon')}>
                             <FontAwesomeIcon icon={faCircleXmark} />
@@ -53,8 +54,13 @@ function Header() {
                     </div>
                 </Tippy>
 
-                <div className="actions"></div>
-            </header>
+                <div className={cx('actions')}>
+                    <Button text>Upload</Button>
+                    <Button primary rounded>
+                        <span>Log in</span>
+                    </Button>
+                </div>
+            </div>
         </div>
     );
 }
