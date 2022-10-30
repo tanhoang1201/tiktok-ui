@@ -2,7 +2,15 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faEarthAsia,
+    faEllipsisVertical,
+    faKeyboard,
+    faMagnifyingGlass,
+    faQuestionCircle,
+    faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import style from './Header.module.scss';
@@ -10,8 +18,26 @@ import images from '../../../../assets/images';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
+import Menu from '../../../Popper/Menu';
 
 const cx = classNames.bind(style);
+
+const MENU_ITEM = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faQuestionCircle} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+];
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
@@ -56,9 +82,14 @@ function Header() {
 
                 <div className={cx('actions')}>
                     <Button text>Upload</Button>
-                    <Button primary rounded>
+                    <Button primary>
                         <span>Log in</span>
                     </Button>
+                    <Menu items={MENU_ITEM}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} className={cx('more-icon')} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </div>

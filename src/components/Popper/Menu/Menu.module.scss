@@ -1,0 +1,28 @@
+.content {
+    width: 224px;
+    padding-bottom: 8px;
+
+    .menu-popper {
+        padding-bottom: 8px;
+    }
+}
+
+.item {
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--hover0color);
+    }
+
+    .icon {
+        margin-right: 8px;
+        width: 18px;
+        display: inline-block;
+    }
+
+    .title {
+        font-weight: 500;
+    }
+}

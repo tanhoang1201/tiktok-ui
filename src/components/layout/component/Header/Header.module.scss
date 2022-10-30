@@ -84,8 +84,14 @@
         }
 
         .actions {
-            .icon {
-                margin-right: 4px;
+            display: flex;
+            align-items: center;
+            .more-btn {
+                background-color: transparent;
+                padding: 0px 10px;
+                font-size: 2rem;
+                margin-left: 16px;
+                cursor: pointer;
             }
         }
     }
