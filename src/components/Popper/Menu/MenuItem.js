@@ -4,7 +4,7 @@ import style from './Menu.module.scss';
 
 const cx = classNames.bind(style);
 
-function MenuItem({ item }) {
+function MenuItem({ item, onClick }) {
     let Com = 'div';
     let props = {};
 
@@ -13,8 +13,8 @@ function MenuItem({ item }) {
         props.to = item.to;
     }
     return (
-        <Com className={cx('item')} {...props}>
-            <span className={cx('icon')}>{item.icon}</span>
+        <Com className={cx('item')} {...props} onClick={onClick}>
+            {item.icon && <span className={cx('icon')}>{item.icon}</span>}
             <span className={cx('title')}>{item.title}</span>
         </Com>
     );
