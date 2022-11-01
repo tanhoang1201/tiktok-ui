@@ -30,6 +30,27 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
+
+    .tippy-box {
+        background-color: #545454eb;
+        border-radius: 8px;
+        font-weight: 600;
+        line-height: 2.2rem;
+    }
+
+    .tippy-content {
+        padding: 10px;
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        color: #545454eb;
+        top: -8px;
+    }
+}
+
+img {
+    width: 100%;
+    display: block;
 }
 
 button,
@@ -37,6 +58,7 @@ input {
     border: none;
     outline: none;
     color: var(--text-color);
+    background-color: transparent;
 }
 
 a {

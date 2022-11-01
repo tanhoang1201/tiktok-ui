@@ -13,7 +13,7 @@ function MenuItem({ item, onClick }) {
         props.to = item.to;
     }
     return (
-        <Com className={cx('item')} {...props} onClick={onClick}>
+        <Com className={cx('item', { separate: item.separate })} {...props} onClick={onClick}>
             {item.icon && <span className={cx('icon')}>{item.icon}</span>}
             <span className={cx('title')}>{item.title}</span>
         </Com>
