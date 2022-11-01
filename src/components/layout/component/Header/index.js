@@ -27,6 +27,8 @@ import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
+import { LetterIcon, MessageIcon } from '../../../icons';
+import Image from '../../../Images';
 
 const cx = classNames.bind(style);
 
@@ -141,13 +143,19 @@ function Header() {
 
                 <div className={cx('actions')}>
                     {currentUser ? (
-                        <>
-                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                        <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                            <>
                                 <button className={cx('actions-btn')}>
                                     <FontAwesomeIcon icon={faCloudUpload} />
                                 </button>
-                            </Tippy>
-                        </>
+                                <button className={cx('actions-btn')}>
+                                    <MessageIcon />
+                                </button>
+                                <button className={cx('actions-btn')}>
+                                    <LetterIcon />
+                                </button>
+                            </>
+                        </Tippy>
                     ) : (
                         <>
                             <Button text>Upload</Button>
@@ -159,9 +167,10 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEM} onChange={handleClick}>
                         {currentUser ? (
                             <div className={cx('user-avatar')}>
-                                <img
-                                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+                                <Image
+                                    src=""
                                     alt="Avatar"
+                                    // fallBack="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/86ce76ce4efec4f0f8bf1ee3793da03b~c5_100x100.jpeg?x-expires=1667458800&x-signature=cJbRuzYT6r0Npw7qu1juTZn1FiY%3D"
                                 />
                             </div>
                         ) : (
