@@ -9,85 +9,12 @@
         align-items: center;
         justify-content: space-between;
 
-        .search,
-        .search-result {
-            width: 361px;
-        }
-
-        .search-title {
-            color: var(--icon-color);
-            font-weight: 500;
-            font-size: 1.4rem;
-            padding: 5px 12px;
-        }
-
-        .search {
-            padding-left: 16px;
-            height: 46px;
-            background: rgba(22, 24, 35, 0.06);
-            border-radius: 92px;
-            border: 1px solid transparent;
-            display: flex;
-            align-items: center;
-            border: 1px solid transparent;
-
-            &:focus-within {
-                border-color: var(--border-color);
-            }
-
-            input {
-                flex: 1;
-                line-height: 22px;
-                font-size: 1.4rem;
-                background-color: transparent;
-                caret-color: var(--primary);
-
-                &:not(:placeholder-shown) ~ .icon {
-                    display: inline-block;
-                }
-                &:not(:placeholder-shown) ~ .search-icon {
-                    color: #333;
-                }
-            }
-
-            .icon {
-                color: var(--icon-color);
-                margin-right: 12px;
-                display: none;
-            }
-
-            .separate {
-                width: 1px;
-                background-color: var(--border-color);
-                display: inline-block;
-                height: 28px;
-            }
-
-            .search-icon {
-                padding: 0 18px 0 14px;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                border-top-right-radius: inherit;
-                border-bottom-right-radius: inherit;
-                color: var(--icon-color);
-
-                &:hover {
-                    background-color: #16182308;
-                    cursor: pointer;
-                }
-
-                &:active {
-                    background-color: #1618230f;
-                }
-            }
-        }
-
         .actions {
             display: flex;
             align-items: center;
 
             &-btn {
+                position: relative;
                 font-size: 2rem;
                 padding: 0 6px;
                 margin: 0 6px;
@@ -110,6 +37,21 @@
                 font-size: 2rem;
                 margin-left: 16px;
                 cursor: pointer;
+            }
+
+            .badge {
+                position: absolute;
+                top: -3px;
+                right: 0px;
+                padding: 0px 6px;
+                height: 2rem;
+                line-height: 2rem;
+                border-radius: 10px;
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: var(--white);
+                font-family: 'ProximaNova', sans-serif;
+                background-color: var(--primary);
             }
         }
     }
