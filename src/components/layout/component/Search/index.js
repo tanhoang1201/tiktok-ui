@@ -36,6 +36,7 @@ function Search() {
 
         fetchApi();
     }, [deBounced]);
+
     return (
         <HeadlessTippy
             interactive
@@ -59,7 +60,12 @@ function Search() {
                     type="text"
                     placeholder="Tìm kiếm tài khoản và video"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={(e) => {
+                        let searchValue = e.target.value;
+                        if (!searchValue.startsWith(' ')) {
+                            setSearchValue(e.target.value);
+                        }
+                    }}
                     onFocus={() => {
                         if (searchValue) {
                             setShowResults(true);
@@ -85,7 +91,7 @@ function Search() {
                     </div>
                 )}
                 <span className={cx('separate')}></span>
-                <div className={cx('search-icon')}>
+                <div className={cx('search-icon')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon className={cx('search-icon-svg')} />
                 </div>
             </div>
