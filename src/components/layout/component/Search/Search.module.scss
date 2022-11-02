@@ -48,6 +48,19 @@
         height: 28px;
     }
 
+    & .loading {
+        animation: spinner 1s linear infinite;
+    }
+
+    @keyframes spinner {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
     .search-icon {
         padding: 0 18px 0 14px;
         height: 100%;

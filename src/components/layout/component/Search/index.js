@@ -15,12 +15,26 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResults, setShowResults] = useState(true);
+    const [loading, setLoading] = useState(false);
     const inpRef = useRef();
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1]);
-        }, 0);
-    }, []);
+        if (!searchValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
+        setLoading(true);
+
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+            .then((response) => response.json())
+            .then((response) => {
+                setSearchResult(response.data);
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+            });
+    }, [searchValue]);
     return (
         <HeadlessTippy
             interactive
@@ -29,9 +43,9 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Accounts</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        {searchResult.map((value) => (
+                            <AccountItem key={value.id} data={value} />
+                        ))}
                     </PopperWrapper>
                 </div>
             )}
@@ -51,7 +65,7 @@ function Search() {
                         }
                     }}
                 />
-                {searchValue && (
+                {searchValue && !loading && (
                     <div
                         className={cx('clear', 'icon')}
                         onClick={() => {
@@ -63,9 +77,12 @@ function Search() {
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </div>
                 )}
-                {/* <div className={cx('loading', 'icon')}>
-                    <FontAwesomeIcon icon={faSpinner} />
-            </div>*/}
+
+                {loading && (
+                    <div className={cx('loading', 'icon')}>
+                        <FontAwesomeIcon icon={faSpinner} />
+                    </div>
+                )}
                 <span className={cx('separate')}></span>
                 <div className={cx('search-icon')}>
                     <SearchIcon className={cx('search-icon-svg')} />
