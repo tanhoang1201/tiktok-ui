@@ -1,11 +1,17 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import images from '../../assets/images';
-import { forwardRef } from 'react';
 
-function Image({ src, alt, fallBack: customFallBack = images.errorImage }, ref) {
+function Image({ src, alt, fallBack: customFallBack = images.errorImage }) {
     const [fallBack, setFallBach] = useState('');
 
-    return <img ref={ref} src={fallBack || src} alt={alt} onError={() => setFallBach(customFallBack)} />;
+    return <img src={fallBack || src} alt={alt} onError={() => setFallBach(customFallBack)} />;
 }
 
-export default forwardRef(Image);
+Image.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    fallBack: PropTypes.string,
+};
+
+export default Image;

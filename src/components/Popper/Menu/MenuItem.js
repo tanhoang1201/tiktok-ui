@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import style from './Menu.module.scss';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(style);
 
@@ -19,5 +20,10 @@ function MenuItem({ item, onClick }) {
         </Com>
     );
 }
+
+MenuItem.propsType = {
+    item: PropTypes.object.isRequired,
+    onClick: PropTypes.func,
+};
 
 export default MenuItem;
