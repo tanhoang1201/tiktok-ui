@@ -52,7 +52,7 @@ function Menu({ children, items, onChange }) {
                                 }}
                             />
                         )}{' '}
-                        {renderItem()}
+                        <div className={cx('menuList')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}

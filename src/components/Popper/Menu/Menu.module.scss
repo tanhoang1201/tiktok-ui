@@ -4,6 +4,10 @@
 
     .menu-popper {
         padding-bottom: 8px;
+
+        .menuList {
+            overflow-y: auto;
+        }
     }
 
     .header {

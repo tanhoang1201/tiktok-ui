@@ -6,7 +6,7 @@
 .container {
     display: grid;
     width: var(--layout-width);
-    margin: auto;
+    margin: var(--header-height) auto auto auto;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     min-height: 1000px;

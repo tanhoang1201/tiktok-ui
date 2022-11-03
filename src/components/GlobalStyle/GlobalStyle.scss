@@ -31,6 +31,7 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
+    overflow-y: overlay;
 
     .tippy-box {
         background-color: #545454eb;
@@ -47,6 +48,36 @@ body {
         color: #545454eb;
         top: -8px;
     }
+}
+
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 img {

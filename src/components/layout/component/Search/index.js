@@ -38,64 +38,66 @@ function Search() {
     }, [deBounced]);
 
     return (
-        <HeadlessTippy
-            interactive
-            visible={showResults && searchResult.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((value) => (
-                            <AccountItem key={value.id} data={value} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={() => setShowResults(false)}
-        >
-            <div className={cx('search')} tabIndex="0">
-                <input
-                    ref={inpRef}
-                    value={searchValue}
-                    type="text"
-                    placeholder="Tìm kiếm tài khoản và video"
-                    spellCheck={false}
-                    onChange={(e) => {
-                        let searchValue = e.target.value;
-                        if (!searchValue.startsWith(' ')) {
-                            setSearchValue(e.target.value);
-                        }
-                    }}
-                    onFocus={() => {
-                        if (searchValue) {
-                            setShowResults(true);
-                        }
-                    }}
-                />
-                {searchValue && !loading && (
-                    <div
-                        className={cx('clear', 'icon')}
-                        onClick={() => {
-                            setSearchValue('');
-                            inpRef.current.focus();
-                            setSearchResult([]);
+        <div>
+            <HeadlessTippy
+                interactive
+                visible={showResults && searchResult.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResult.map((value) => (
+                                <AccountItem key={value.id} data={value} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
+                )}
+                onClickOutside={() => setShowResults(false)}
+            >
+                <div className={cx('search')} tabIndex="0">
+                    <input
+                        ref={inpRef}
+                        value={searchValue}
+                        type="text"
+                        placeholder="Tìm kiếm tài khoản và video"
+                        spellCheck={false}
+                        onChange={(e) => {
+                            let searchValue = e.target.value;
+                            if (!searchValue.startsWith(' ')) {
+                                setSearchValue(e.target.value);
+                            }
                         }}
-                    >
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </div>
-                )}
+                        onFocus={() => {
+                            if (searchValue) {
+                                setShowResults(true);
+                            }
+                        }}
+                    />
+                    {searchValue && !loading && (
+                        <div
+                            className={cx('clear', 'icon')}
+                            onClick={() => {
+                                setSearchValue('');
+                                inpRef.current.focus();
+                                setSearchResult([]);
+                            }}
+                        >
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </div>
+                    )}
 
-                {loading && (
-                    <div className={cx('loading', 'icon')}>
-                        <FontAwesomeIcon icon={faSpinner} />
+                    {loading && (
+                        <div className={cx('loading', 'icon')}>
+                            <FontAwesomeIcon icon={faSpinner} />
+                        </div>
+                    )}
+                    <span className={cx('separate')}></span>
+                    <div className={cx('search-icon')} onMouseDown={(e) => e.preventDefault()}>
+                        <SearchIcon className={cx('search-icon-svg')} />
                     </div>
-                )}
-                <span className={cx('separate')}></span>
-                <div className={cx('search-icon')} onMouseDown={(e) => e.preventDefault()}>
-                    <SearchIcon className={cx('search-icon-svg')} />
                 </div>
-            </div>
-        </HeadlessTippy>
+            </HeadlessTippy>
+        </div>
     );
 }
 
