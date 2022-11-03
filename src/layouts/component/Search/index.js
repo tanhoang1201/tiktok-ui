@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
-import * as apiService from '../../../ApiService/search';
+import * as apiService from '../../../Services/searchService';
 import style from './Search.module.scss';
-import { SearchIcon } from '../../../icons';
-import AccountItem from '../../../AccountItem';
-import { Wrapper as PopperWrapper } from '../../../Popper';
-import { useDebounce } from '../../../../hooks';
+import { SearchIcon } from '../../../components/icons';
+import AccountItem from '../../../components/AccountItem';
+import { Wrapper as PopperWrapper } from '../../../components/Popper';
+import { useDebounce } from '../../../hooks';
 
 const cx = classNames.bind(style);
 

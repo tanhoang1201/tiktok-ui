@@ -16,14 +16,13 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import style from './Header.module.scss';
-import images from '../../../../assets/images';
-import Button from '../../../Button';
-import Menu from '../../../Popper/Menu';
-import { LetterIcon, MessageIcon, UploadIcon } from '../../../icons';
-import Image from '../../../Images';
+import images from '../../../assets/images';
+import Button from '../../../components/Button';
+import Menu from '../../../components/Popper/Menu';
+import { LetterIcon, MessageIcon, UploadIcon } from '../../../components/icons';
+import Image from '../../../components/Images';
 import Search from '../Search';
-import { routes } from '../../../../config/routes';
-
+import config from '../../../config';
 const cx = classNames.bind(style);
 
 const MENU_ITEM = [
@@ -97,7 +96,7 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <Link to={routes.home}>
+                <Link to={config.routes.home}>
                     <img src={images.logo} alt="Tik Tok" />
                 </Link>
                 <Search />
@@ -105,7 +104,7 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 100]} content="Upload video" placement="bottom">
-                                <Link to={routes.upload} className={cx('actions-btn')}>
+                                <Link to={config.routes.upload} className={cx('actions-btn')}>
                                     <UploadIcon />
                                 </Link>
                             </Tippy>
