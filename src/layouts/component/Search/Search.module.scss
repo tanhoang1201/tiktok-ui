@@ -30,6 +30,7 @@
         font-size: 1.4rem;
         background-color: transparent;
         caret-color: var(--primary);
+        padding-right: 10px;
     }
 
     input:not(:placeholder-shown) ~ .search-icon .search-icon-svg {
